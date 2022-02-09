@@ -3,14 +3,28 @@
 leg = input("Te rugam introdu legea functiei:\n")
 valoriel_calcul = input("Te rugam introdu numere folosind ca separator \",\":\n").split(',')
 values = []
-if len(valoriel_calcul) < 3:
-    print("Te rugam sa introduci minim 3 valori!")
-    exit()
-for x in valoriel_calcul:
-    values.append(int(x))
+# print(valoriel_calcul)
+if str(valoriel_calcul) == "['']":
+    default_values = [1,0,-1]
+    for x in default_values:
+        values.append(x)    
+else:
+    if len(valoriel_calcul) < 3:
+        print("Te rugam sa introduci minim 3 valori!")
+        exit()
+    elif len(valoriel_calcul) >= 6:
+        print("Maximul de valori este 5!")
+        exit()
+    else:
+        if len(valoriel_calcul) != len(set(valoriel_calcul)):
+            print("S-au gasit doua valori la fel!")
+            exit()
+        else:
+            for x in valoriel_calcul:
+                values.append(int(x))
 
 letters_for_points = ["A", "B", "C", "D", "E", "F", "G", "H", "I"]
-for x in range(2):
+for x in range(4):
     print()
 
 def leg_separator():
